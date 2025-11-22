@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prem Shanker Verma - BJP Leader</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">Prem Shanker Verma</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="initiatives.html">Initiatives</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/p.jpg" alt="Prem Shanker Verma">
+        <h1>Prem Shanker Verma</h1>
+        <p>"Serving People, Serving Nation"</p>
+        <p>"जन सेवा, राष्ट्र सेवा"</p>
+        <a href="contact.html" class="btn">Contact</a>
+    </section>
+
+    <!-- Highlights / Quick Info -->
+    <section class="highlights">
+
+        <div class="card">
+            <h2>Experience</h2>
+            <p>10+ years of political service in BJP.</p>
+        </div>
+
+        <div class="card">
+            <h3>Events</h3>
+            <p>Upcoming rallies, public meetings, and community events.</p>
+        </div>
+
+        <div class="card">
+            <h2>Vision</h2>
+            <p>समृद्ध भारत और मजबूत समाज के लिए प्रतिबद्ध।</p>
+        </div>
+
+    </section>
+
+    <section class="events-home">
+    <h2>Upcoming Events</h2>
+    <ul id="eventList"></ul>
+    
+<script>
+    const sheetAPI = "https://script.google.com/macros/s/AKfycbxDUqUKFG5Mx5_4tcfT2VLXDlx6I9TNMJxpf4yv96WYMq9PdnwB5w55l1jwZFVk_1Xu/exec";
+
+    async function loadEvents() {
+        const eventList = document.getElementById("eventList");
+        const res = await fetch(sheetAPI);
+        const events = await res.json();
+
+        if(events.length === 0){
+            eventList.innerHTML = "<li>No upcoming events</li>";
+            return;
+        }
+
+        events.forEach(e => {
+            eventList.innerHTML += `
+                <li>
+                    <strong>${e.title}</strong>: 
+                    ${e.date}, ${e.time}, ${e.location}
+                </li>
+            `;
+        });
+    }
+
+    loadEvents();
+</script>
+</section>
+    <!-- Continue Works + Image Slider Section -->
+    <section class="works-section">
+        <h2>Politics Career</h2>
+
+        <div class="slider-container">
+            <div class="slide"><img src="images/a (1).jpg" alt="Work 1"></div>
+            <div class="slide"><img src="images/a (2).jpg" alt="Work 2"></div>
+            <div class="slide"><img src="images/a (3).jpg" alt="Work 3"></div>
+            <div class="slide"><img src="images/a (4).jpg" alt="Work 4"></div>
+            <div class="slide"><img src="images/a (5).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/a (6).jpg" alt="Work 6"></div>
+            <div class="slide"><img src="images/a (7).jpg" alt="Work 7"></div>
+            <div class="slide"><img src="images/a (8).jpg" alt="Work 8"></div>
+            <div class="slide"><img src="images/e (1).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/e (2).jpg" alt="Work 6"></div>
+            <div class="slide"><img src="images/e (3).jpg" alt="Work 8"></div>
+            <div class="slide"><img src="images/e (4).jpg" alt="Work 7"></div>
+            <div class="slide"><img src="images/e (5).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/e (6).jpg" alt="Work 6"></div>
+            <div class="slide"><img src="images/e (7).jpg" alt="Work 7"></div>
+            <div class="slide"><img src="images/e (8).jpg" alt="Work 8"></div>
+            <div class="slide"><img src="images/e (9).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/e (10).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/r (1).jpg" alt="Work 5"></div> 
+            <div class="slide"><img src="images/r (2).jpg" alt="Work 6"></div>
+            <div class="slide"><img src="images/r (3).jpg" alt="Work 8"></div>
+            <div class="slide"><img src="images/r (4).jpg" alt="Work 7"></div>
+            <div class="slide"><img src="images/r (5).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/r (6).jpg" alt="Work 6"></div>
+            <div class="slide"><img src="images/r (7).jpg" alt="Work 7"></div>
+            <div class="slide"><img src="images/r (8).jpg" alt="Work 8"></div>
+            <div class="slide"><img src="images/r (9).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/r (10).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/r (11).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/r (12).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/r (13).jpg" alt="Work 5"></div>
+            <div class="slide"><img src="images/r (14).jpg" alt="Work 5"></div>
+
+            <!-- Arrows -->
+            <a class="prev" onclick="changeSlide(-1)">❮</a>
+            <a class="next" onclick="changeSlide(1)">❯</a>
+
+            <!-- Dots -->
+            <div class="dots-container"></div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact: 73556699739 | © 2025 Prem Shanker Verma</p>
+    </footer>
+</body>
+
+</html>
+<script>
+    let slideIndex = 1;
+    const slides = document.getElementsByClassName("slide");
+    const dotsContainer = document.querySelector(".dots-container");
+
+    // Create dots automatically
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => currentSlide(i + 1));
+        dotsContainer.appendChild(dot);
+    }
+
+    showSlide(slideIndex);
+    startAutoSlide();
+
+    // Arrow control
+    function changeSlide(n) {
+        showSlide(slideIndex += n);
+    }
+
+    // Dot control
+    function currentSlide(n) {
+        showSlide(slideIndex = n);
+    }
+
+    // Show slide function
+    function showSlide(n) {
+        const dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            dots[i].classList.remove("active");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add("active");
+    }
+
+    // Auto slide
+    let autoTimer;
+    function startAutoSlide() {
+        autoTimer = setInterval(() => {
+            changeSlide(1);
+        }, 3000);
+    }
+
+    // Optional: stop auto on hover
+    document.querySelector(".slider-container").addEventListener("mouseenter", () => clearInterval(autoTimer));
+    document.querySelector(".slider-container").addEventListener("mouseleave", () => startAutoSlide());
+
+</script>
+
+
